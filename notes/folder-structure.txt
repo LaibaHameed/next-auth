@@ -1,0 +1,54 @@
+use a src directory in the root of your project to separate your application's code from configuration files.
+
+in app folder , when we create folder , it automatically creates route on the name of folder
+
+app mai api folder k elwa sb frontend ka hai. api backend ka folder ha.
+in app folder "api" folder the the collections folder (tables folder)
+in api folder -> users folder (users folder mai sare kam karwana chahta hai) -> toh (login folder mai login se related sara kam ho ga)
+
+src folder k bahir .env kr k ik file ho gi os mai sare envirement variables ho gy
+environment varibales sari wo information hota hai jo k senstive hoti hai 
+jesy databaseka koi url, password, client keys, secrete keys.
+
+src k ander hm models rkh lain gy,
+app k ander hm specfic cheezain rkhty hain
+
+models : jesy k ik table mai kya kya fields etc ho gi
+
+toh is k liye npm i mongoose install krna hoga.
+
+verifyToken : String,
+verifyTokenExpiry : Date
+
+jb user signup krta hai toh app ik verifyToken or verifyTokenExpiry generate krta hai, 
+jo k ik database or user k email py send ki jati hai,
+jb user os email mai ai hoi koi url ko click krta hai toh data app k pass ponchta hai, phir app databsae or user k os data ko compare krti hai, or expiry date b check krti hai, agr string b match kr ri hai or expiry date b hai toh verify kr deti hai,
+
+isi tarha 
+
+forgotPasswordToken : String,
+forgotPasswordTokenExpiry : Date,
+
+kam krta hai, database se compare or expiry date check krny k bad hm password field ko update kr dety hain
+
+wesy jb hm model export krty hain toh os ko simply export kr dety hain,
+lekin jb next mai koi model export krty hain toh next ko (edge py run krny ki waja se) pta nahi chalta. 
+toh hmain ik situation ka dehan rkhna pare ga , agr create nahi howa toh create krna hai wrna sirf os ka reference pass krna hai ta k os ref se data insert etc ho sky
+
+dbconfig.ts :
+    jb hm connection k liye simpe ye likhty hain
+    mongoose.connect(process.env.MONGO_URI!)
+
+**sample
+    try {
+        mongoose.connect(process.env.MONGO_URI)
+    } catch (error) {
+        console.log("something went wrong in connecting db");
+        console.log(error);
+    }
+
+toh ye error deta hai, ye ts hai is liye hmesha safety chahta hai, k mujy gurntee do k "process.env.MONGO_URI" mai string aye gi hi aye gi,
+is ko handle krny k do ways hain 
+1. simply : exclaimation mark lga do , iska mtlb hota hai k mujy pta hai k is mai url aye ga hi aye ga
+    mongoose.connect(process.env.MONGO_URI!)
+2. ap koi condition wgyra lg do k if(uri) the connect else empty string etc 
