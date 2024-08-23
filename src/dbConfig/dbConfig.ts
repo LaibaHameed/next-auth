@@ -1,4 +1,3 @@
-import { log } from "console";
 import mongoose from "mongoose";
 
 // db hmesha dosre continent mai hota hai toh is ki koi grutee nahi k connect ho ga ya nahi,
@@ -12,7 +11,7 @@ export  async function connect(){
         }else{
             mongoose.connect("");
         }
-        // ypu can use instead 
+        // you can use instead 
         // mongoose.connect(process.env.MONGO_URI!)
 
         const connection = mongoose.connection;
@@ -20,7 +19,7 @@ export  async function connect(){
             console.log("MongoDB connected");
         });
         connection.on('error', (error)=>{
-            console.log("mongoDB connection error, makie sure db is up and running" + error);
+            console.log("mongoDB connection error, make sure db is up and running" + error);
             process.exit();
         })
     } catch (error) {

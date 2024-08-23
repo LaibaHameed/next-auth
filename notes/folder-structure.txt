@@ -52,3 +52,19 @@ is ko handle krny k do ways hain
 1. simply : exclaimation mark lga do , iska mtlb hota hai k mujy pta hai k is mai url aye ga hi aye ga
     mongoose.connect(process.env.MONGO_URI!)
 2. ap koi condition wgyra lg do k if(uri) the connect else empty string etc 
+
+type script use kr ry hain toh hmien har cheez ki type batani pare gi
+ab nodemailer install kia toh import kia wo b error se ra tha 
+osko fix krny k liye ik comand chalia :
+npm i --save-dev @types/nodemailer
+
+
+*** api folders
+jo app k ander pages banny hain wo react/next ka part hain,
+or jo api k ander folders banny gy wo routes hain. wo ship nahi hoty 
+
+ab api mai signup/ login wgyra hai, onko nahi pta k hm db se connected hain k nahi,
+is liye on ko ye kod configure krna pharta hai, toh is liye hm ye use krty hain:
+
+import { connect } from "@/dbConfig/dbConfig";
+connect();
