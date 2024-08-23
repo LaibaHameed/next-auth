@@ -1,0 +1,22 @@
+<mxfile host="app.diagrams.net" modified="2024-08-23T14:14:29.794Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36" etag="lnRUMnPmvDyIGLcv5JWE" version="24.0.6" type="device">
+  <diagram name="Page-1" id="C8osnoMumfsb_SJN_wgF">
+    <mxGraphModel dx="772" dy="349" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2jRoZnvIHiZzppvhtLXt-5" value="user model" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="2jRoZnvIHiZzppvhtLXt-7" value="username&lt;div&gt;email&lt;/div&gt;&lt;div&gt;password&lt;/div&gt;&lt;div&gt;is Varfied&lt;/div&gt;&lt;div&gt;isAdmin&lt;/div&gt;&lt;div&gt;forgot Password Token&lt;/div&gt;&lt;div&gt;forgot Password Token Expiry&lt;/div&gt;&lt;div&gt;verify Token&lt;/div&gt;&lt;div&gt;verify Token Expiry&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2jRoZnvIHiZzppvhtLXt-5">
+          <mxGeometry y="34" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="2jRoZnvIHiZzppvhtLXt-9" value="Database config" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="266" y="20" width="170" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2jRoZnvIHiZzppvhtLXt-10" value="we connect database here&lt;div&gt;connect() functionality is here&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="2jRoZnvIHiZzppvhtLXt-9">
+          <mxGeometry x="-10" y="29" width="180" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

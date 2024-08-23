@@ -8,18 +8,23 @@ connect();
 
 export async function POST(req:NextRequest) {
     try {
+        // request mai se username, email, password extract kr lain gy
         const reqBody = await req.json();
         const {username, email, password } = reqBody;
-        // validation username, password (k password 6 chars ka hona chaye) etc 
-        console.log(reqBody);
+        //todo: validation username, password (k password 6 chars ka hona chaye) etc 
+        // console.log(reqBody);
 
+        // email se find kro (User database) mai phly se is email py koi user toh register toh nhi
         const user = await User.findOne({email});
         if(user) {
             return NextResponse.json({error: "user already exists"}, {status:400});
         }
 
+        // salt generation and password encryption
         const salt = await bcryptjs.genSalt(10);
         const hashedPassword = await bcryptjs.hash(password, salt);
+
+        // creating new field(user) in db
         const newUser = await new User({
             username,
             email,
@@ -27,9 +32,11 @@ export async function POST(req:NextRequest) {
         });
 
         const savedUser = await newUser.save();
-        console.log(savedUser);
+        // console.log(savedUser);
 
-        // send verification email
+        // send verification email (go to utils/mailer.ts)
+        // email hm password reset krny k liye b bhej skty hain or verification k lie b signup k time py
+        // is liye email type 2 rkhy hain 1.VERIFY, 2.RESET
         await sendEmail({email, emailType: "VERIFY", userId: savedUser._id});
 
         return NextResponse.json({
