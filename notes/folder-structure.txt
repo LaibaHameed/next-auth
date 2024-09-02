@@ -1,3 +1,4 @@
+models -> dbConfig -> app/api/users/signup -> utils/mailer -> app/api/users/login -> app/api/users/me -> utils/getDataFromToken -> app/signup -> app/login -> app/profile
 use a src directory in the root of your project to separate your application's code from configuration files.
 
 in app folder , when we create folder , it automatically creates route on the name of folder
@@ -21,7 +22,7 @@ verifyToken : String,
 verifyTokenExpiry : Date
 
 jb user signup krta hai toh app ik verifyToken or verifyTokenExpiry generate krta hai, 
-jo k ik database or user k email py send ki jati hai,
+jo k ik database ko send krta hai or user k email py send ki jati hai,
 jb user os email mai ai hoi koi url ko click krta hai toh data app k pass ponchta hai, phir app databsae or user k os data ko compare krti hai, or expiry date b check krti hai, agr string b match kr ri hai or expiry date b hai toh verify kr deti hai,
 
 isi tarha 

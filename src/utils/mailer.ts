@@ -31,10 +31,12 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
             }
         });
 
-        const reset = `<p>Click here -> <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}"> ${emailType === "RESET" ? "reset your password" : "verify your email"} </a>
+        const reset = `<p>Click here ->
+        <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}"> ${emailType === "RESET" ? "reset your password" : "verify your email"} </a>
         or copy and paste the link below into your browser. <br> ${process.env.DOMAIN}/verifyemail?token=${hashedToken} </p>`;
 
-        const verify = `<p>Click here <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}"> ${emailType === "VERIFY" ? "verify your email" : "reset your password"} </a>
+        const verify = `<p>Click here ->
+        <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}"> ${emailType === "VERIFY" ? "verify your email" : "reset your password"} </a>
         or copy and paste the link below into your browser. <br> ${process.env.DOMAIN}/verifyemail?token=${hashedToken} </p>`;
 
         const mailOptions = {
@@ -44,6 +46,7 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
             html: emailType === "VERIFY" ? verify : reset, // html body
         };
 
+        // sendMail nodemailer ka function hai 
         const mailResponse = await transport.sendMail(mailOptions)
         return mailResponse;
 

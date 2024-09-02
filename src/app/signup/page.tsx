@@ -18,8 +18,9 @@ const Signuppage = () => {
   const onSignup = async () => {
     try {
       setLoading(true);
+      // is route py poncha do, yaha se sara kam ho k aye ga(functionality)
       const response = await axios.post('/api/users/signup', user);
-
+      // agr signup successfully ho gaya hai toh login route py push kr do
       if (response.status === 200 || response.data.success) {  // adjust based on your API response structure
         router.push('/login');
       } else {
@@ -34,6 +35,7 @@ const Signuppage = () => {
     }
   };
 
+  //jb tk email, password, or username ki fields empty hon tb tk button diable rkho 
   useEffect(() => {
     if (user.email.length > 0 && user.password.length > 0 && user.username.length > 0) {
       setButtonDisabled(false);
@@ -68,7 +70,7 @@ const Signuppage = () => {
               onChange={(e) => setUser({ ...user, password: e.target.value })} 
               type="password" className="input" placeholder="Password" />
           </div>
-
+          {/* agr buttonDisabled ya loading true ho  toh disable*/}
           <button type="submit" disabled={buttonDisabled || loading}>
             {loading ? "Processing..." : "Sign up"}
           </button>

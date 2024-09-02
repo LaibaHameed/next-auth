@@ -11,6 +11,7 @@ export async function POST(req:NextRequest) {
         // request mai se username, email, password extract kr lain gy
         const reqBody = await req.json();
         const {username, email, password } = reqBody;
+
         //todo: validation username, password (k password 6 chars ka hona chaye) etc 
         // console.log(reqBody);
 
@@ -34,7 +35,7 @@ export async function POST(req:NextRequest) {
         const savedUser = await newUser.save();
         // console.log(savedUser);
 
-        // send verification email (go to utils/mailer.ts)
+        // send verification email (go to utils/mailer.ts) sendEmail hm mailer.ts se ly k aye hain
         // email hm password reset krny k liye b bhej skty hain or verification k lie b signup k time py
         // is liye email type 2 rkhy hain 1.VERIFY, 2.RESET
         await sendEmail({email, emailType: "VERIFY", userId: savedUser._id});

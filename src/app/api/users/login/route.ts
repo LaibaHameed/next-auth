@@ -22,6 +22,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: "password is incorrect" }, { status: 400 });
         }
         // if password is valid set token/cookie data
+        // kaya data send krna hai cookies mai, secret key, or expiry date
         const tokenData = { id: user._id }
         const token = jwt.sign(tokenData, process.env.TOKEN_SECRET!, { expiresIn: '1d' });
         // response kya send krna , abhi sirf variable mai store kia
